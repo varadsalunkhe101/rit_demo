@@ -1,452 +1,409 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Varad Salunkhe | CSE Student & Developer</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-            background: #f8fafc;
-            color: #1e293b;
-        }
+      body {
+        background: #f8fafc;
+        color: #1e293b;
+      }
 
-        /* Navbar */
-        nav {
-            background: #0f172a;
-            color: white;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+      /* Navbar */
+      nav {
+        background: #0f172a;
+        color: white;
+        padding: 18px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
 
-        nav h2 {
-            color: #38bdf8;
-            letter-spacing: 1px;
-        }
+      nav h2 {
+        color: #38bdf8;
+        letter-spacing: 1px;
+      }
 
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 25px;
-            transition: 0.3s;
-        }
+      nav a {
+        color: #cbd5e1;
+        text-decoration: none;
+        margin-left: 25px;
+        transition: 0.3s;
+      }
 
-        nav a:hover {
-            color: #38bdf8;
-        }
+      nav a:hover {
+        color: #38bdf8;
+      }
 
-        /* Hero */
-        .hero {
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px 20px;
-            background:
-                radial-gradient(circle at top right, #1d4ed8 0%, transparent 35%),
-                linear-gradient(135deg, #020617, #0f172a, #172554);
-            color: white;
+      /* Hero */
+      .hero {
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 60px 20px;
+        background:
+          radial-gradient(circle at top right, #1d4ed8 0%, transparent 35%),
+          linear-gradient(135deg, #020617, #0f172a, #172554);
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: 54px;
+        margin-bottom: 15px;
+      }
+
+      .hero span {
+        color: #38bdf8;
+      }
+
+      .hero p {
+        font-size: 20px;
+        max-width: 700px;
+        margin-bottom: 30px;
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
+
+      .hero .tagline {
+        color: #94a3b8;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background: #38bdf8;
+        color: #082f49;
+        border: none;
+        padding: 13px 28px;
+        border-radius: 7px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #0ea5e9;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Sections */
+      section {
+        padding: 70px 8%;
+      }
+
+      section h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 32px;
+        color: #0f172a;
+      }
+
+      section h2::after {
+        content: "";
+        display: block;
+        width: 55px;
+        height: 4px;
+        background: #38bdf8;
+        margin: 12px auto 0;
+        border-radius: 5px;
+      }
+
+      /* About */
+      .about {
+        text-align: center;
+        max-width: 850px;
+        margin: auto;
+        line-height: 1.8;
+        color: #475569;
+        font-size: 17px;
+      }
+
+      .about strong {
+        color: #0f172a;
+      }
+
+      /* Skills */
+      .services {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+      }
+
+      .card {
+        background: white;
+        padding: 32px 22px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+        border: 1px solid #e2e8f0;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.13);
+      }
+
+      .card .icon {
+        font-size: 35px;
+        margin-bottom: 18px;
+      }
+
+      .card h3 {
+        margin-bottom: 12px;
+        color: #0f172a;
+      }
+
+      .card p {
+        color: #64748b;
+        line-height: 1.6;
+      }
+
+      /* Contact */
+      .contact {
+        text-align: center;
+        background: #e2e8f0;
+      }
+
+      .contact p {
+        color: #475569;
+        font-size: 17px;
+        margin-bottom: 5px;
+      }
+
+      .contact a {
+        color: #0284c7;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Footer */
+      footer {
+        background: #020617;
+        color: #94a3b8;
+        text-align: center;
+        padding: 22px;
+      }
+
+      footer span {
+        color: #38bdf8;
+      }
+
+      /* Responsive */
+      @media (max-width: 800px) {
+        .services {
+          grid-template-columns: 1fr 1fr;
         }
 
         .hero h1 {
-            font-size: 54px;
-            margin-bottom: 15px;
+          font-size: 40px;
         }
 
-        .hero span {
-            color: #38bdf8;
+        nav {
+          padding: 18px 5%;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .services {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        nav a {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+        .hero h1 {
+          font-size: 34px;
         }
 
         .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin-bottom: 30px;
-            color: #cbd5e1;
-            line-height: 1.6;
+          font-size: 17px;
         }
 
-        .hero .tagline {
-            color: #94a3b8;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        button {
-            background: #38bdf8;
-            color: #082f49;
-            border: none;
-            padding: 13px 28px;
-            border-radius: 7px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #0ea5e9;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
         section {
-            padding: 70px 8%;
+          padding: 55px 6%;
         }
-
-        section h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 32px;
-            color: #0f172a;
-        }
-
-        section h2::after {
-            content: "";
-            display: block;
-            width: 55px;
-            height: 4px;
-            background: #38bdf8;
-            margin: 12px auto 0;
-            border-radius: 5px;
-        }
-
-        /* About */
-        .about {
-            text-align: center;
-            max-width: 850px;
-            margin: auto;
-            line-height: 1.8;
-            color: #475569;
-            font-size: 17px;
-        }
-
-        .about strong {
-            color: #0f172a;
-        }
-
-        /* Skills */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-        }
-
-        .card {
-            background: white;
-            padding: 32px 22px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.13);
-        }
-
-        .card .icon {
-            font-size: 35px;
-            margin-bottom: 18px;
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-            color: #0f172a;
-        }
-
-        .card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Contact */
-        .contact {
-            text-align: center;
-            background: #e2e8f0;
-        }
-
-        .contact p {
-            color: #475569;
-            font-size: 17px;
-            margin-bottom: 5px;
-        }
-
-        .contact a {
-            color: #0284c7;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            background: #020617;
-            color: #94a3b8;
-            text-align: center;
-            padding: 22px;
-        }
-
-        footer span {
-            color: #38bdf8;
-        }
-
-        /* Responsive */
-        @media (max-width: 800px) {
-
-            .services {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            nav {
-                padding: 18px 5%;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .services {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            nav a {
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-
-            .hero h1 {
-                font-size: 34px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            section {
-                padding: 55px 6%;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- Navbar -->
     <nav>
+      <h2>Varad Salunkhe</h2>
 
-        <h2>Varad Salunkhe</h2>
-
-        <div>
-            <a href="#about">About</a>
-            <a href="#services">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
-
+      <div>
+        <a href="#about">About</a>
+        <a href="#services">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
-
 
     <!-- Hero Section -->
     <section class="hero">
+      <p class="tagline">COMPUTER SCIENCE ENGINEERING STUDENT</p>
 
-        <p class="tagline">COMPUTER SCIENCE ENGINEERING STUDENT</p>
+      <h1>Hi, I'm <span>Varad</span></h1>
 
-        <h1>Hi, I'm <span>Varad</span></h1>
+      <p>
+        A passionate CSE student focused on building practical software
+        solutions and developing skills in Full Stack Development, Data Science,
+        AI and Cloud Technologies.
+      </p>
 
-        <p>
-            A passionate CSE student focused on building practical
-            software solutions and developing skills in Full Stack
-            Development, Data Science, AI and Cloud Technologies.
-        </p>
-
-        <button onclick="showMessage()">
-            Explore My Profile
-        </button>
-
+      <button onclick="showMessage()">Explore My Profile</button>
     </section>
-
 
     <!-- About -->
     <section id="about">
+      <h2>About Me</h2>
 
-        <h2>About Me</h2>
+      <div class="about">
+        <p>
+          I am <strong>Varad Salunkhe</strong>, a Computer Science Engineering
+          student passionate about technology, software development and
+          continuous learning.
+        </p>
 
-        <div class="about">
+        <br />
 
-            <p>
-                I am <strong>Varad Salunkhe</strong>, a Computer Science
-                Engineering student passionate about technology,
-                software development and continuous learning.
-            </p>
+        <p>
+          My interests include
+          <strong
+            >Java Full Stack Development, Python, Data Science, Artificial
+            Intelligence, DevOps and Cloud Computing</strong
+          >. I enjoy turning ideas into practical projects and improving my
+          technical skills through hands-on development.
+        </p>
 
-            <br>
+        <br />
 
-            <p>
-                My interests include <strong>Java Full Stack Development,
-                Python, Data Science, Artificial Intelligence,
-                DevOps and Cloud Computing</strong>. I enjoy turning
-                ideas into practical projects and improving my
-                technical skills through hands-on development.
-            </p>
-
-            <br>
-
-            <p>
-                My goal is to become a skilled software developer and
-                build reliable, scalable and useful applications.
-            </p>
-
-        </div>
-
+        <p>
+          My goal is to become a skilled software developer and build reliable,
+          scalable and useful applications.
+        </p>
+      </div>
     </section>
-
 
     <!-- Skills -->
     <section id="services">
+      <h2>My Skills</h2>
 
-        <h2>My Skills</h2>
+      <div class="services">
+        <div class="card">
+          <div class="icon">💻</div>
 
-        <div class="services">
+          <h3>Full Stack Development</h3>
 
-            <div class="card">
-
-                <div class="icon">💻</div>
-
-                <h3>Full Stack Development</h3>
-
-                <p>
-                    Building responsive web applications using
-                    HTML, CSS, JavaScript, Bootstrap and backend
-                    technologies.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">☕</div>
-
-                <h3>Java Development</h3>
-
-                <p>
-                    Learning Core Java, OOP, Collections, JDBC,
-                    SQL and Spring Boot for enterprise applications.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">📊</div>
-
-                <h3>Data & AI</h3>
-
-                <p>
-                    Exploring Python, Data Science, Machine Learning,
-                    data analysis and practical AI applications.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">☁️</div>
-
-                <h3>Cloud & DevOps</h3>
-
-                <p>
-                    Working with Git, GitHub, Docker, CI/CD,
-                    cloud deployment and modern development workflows.
-                </p>
-
-            </div>
-
+          <p>
+            Building responsive web applications using HTML, CSS, JavaScript,
+            Bootstrap and backend technologies.
+          </p>
         </div>
 
-    </section>
+        <div class="card">
+          <div class="icon">☕</div>
 
+          <h3>Java Development</h3>
+
+          <p>
+            Learning Core Java, OOP, Collections, JDBC, SQL and Spring Boot for
+            enterprise applications.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📊</div>
+
+          <h3>Data & AI</h3>
+
+          <p>
+            Exploring Python, Data Science, Machine Learning, data analysis and
+            practical AI applications.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">☁️</div>
+
+          <h3>Cloud & DevOps</h3>
+
+          <p>
+            Working with Git, GitHub, Docker, CI/CD, cloud deployment and modern
+            development workflows.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- Contact -->
     <section id="contact" class="contact">
+      <h2>Let's Connect</h2>
 
-        <h2>Let's Connect</h2>
+      <p>Interested in technology, collaboration or project development?</p>
 
-        <p>
-            Interested in technology, collaboration or project development?
-        </p>
+      <br />
 
-        <br>
+      <p>
+        Email:
+        <a href="mailto:varadsalunkhe@example.com">
+          varadsalunkhe@example.com
+        </a>
+      </p>
 
-        <p>
-            Email:
-            <a href="mailto:varadsalunkhe@example.com">
-                varadsalunkhe@example.com
-            </a>
-        </p>
+      <br />
 
-        <br>
-
-        <button onclick="contactMessage()">
-            Contact Me
-        </button>
-
+      <button onclick="contactMessage()">Contact Me</button>
     </section>
-
 
     <!-- Footer -->
     <footer>
-
+      <footer>
         <p>
-            © 2026 <span>Varad Salunkhe</span>.
-            All Rights Reserved.
+          © 2026 <span>Varad Salunkhe</span> | VSpireInnovations - All Rights
+          Reserved.
         </p>
-
+      </footer>
     </footer>
-
 
     <!-- JavaScript -->
     <script>
+      function showMessage() {
+        alert("Welcome to Varad Salunkhe's portfolio!");
+      }
 
-        function showMessage() {
-            alert("Welcome to Varad Salunkhe's portfolio!");
-        }
-
-        function contactMessage() {
-            alert("Thank you for reaching out to Varad!");
-        }
-
+      function contactMessage() {
+        alert("Thank you for reaching out to Varad!");
+      }
     </script>
-
-</body>
+  </body>
 </html>
