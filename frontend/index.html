@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Varad Salunkhe</title>
+    <title>Varad Salunkhe | CSE Student & Developer</title>
 
     <style>
         * {
@@ -14,8 +14,12 @@
             font-family: Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background: #f5f7fa;
+            background: #f8fafc;
             color: #1e293b;
         }
 
@@ -27,91 +31,144 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav h2 {
-            color: #f97316;
+            color: #38bdf8;
+            letter-spacing: 1px;
         }
 
         nav a {
-            color: white;
+            color: #cbd5e1;
             text-decoration: none;
             margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
         }
 
         /* Hero */
         .hero {
-            min-height: 450px;
+            min-height: 500px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at top right, #1d4ed8 0%, transparent 35%),
+                linear-gradient(135deg, #020617, #0f172a, #172554);
             color: white;
         }
 
         .hero h1 {
-            font-size: 50px;
+            font-size: 54px;
             margin-bottom: 15px;
         }
 
         .hero span {
-            color: #f97316;
+            color: #38bdf8;
         }
 
         .hero p {
             font-size: 20px;
             max-width: 700px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .hero .tagline {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
 
         button {
-            background: #f97316;
-            color: white;
+            background: #38bdf8;
+            color: #082f49;
             border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
+            padding: 13px 28px;
+            border-radius: 7px;
             cursor: pointer;
             font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
         button:hover {
-            background: #ea580c;
+            background: #0ea5e9;
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Sections */
         section {
-            padding: 60px 8%;
+            padding: 70px 8%;
         }
 
         section h2 {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             font-size: 32px;
+            color: #0f172a;
         }
 
+        section h2::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 4px;
+            background: #38bdf8;
+            margin: 12px auto 0;
+            border-radius: 5px;
+        }
+
+        /* About */
         .about {
             text-align: center;
-            max-width: 800px;
+            max-width: 850px;
             margin: auto;
-            line-height: 1.7;
+            line-height: 1.8;
+            color: #475569;
+            font-size: 17px;
         }
 
-        /* Services */
+        .about strong {
+            color: #0f172a;
+        }
+
+        /* Skills */
         .services {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 22px;
         }
 
         .card {
             background: white;
-            padding: 30px 20px;
-            border-radius: 10px;
+            padding: 32px 22px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.13);
+        }
+
+        .card .icon {
+            font-size: 35px;
+            margin-bottom: 18px;
         }
 
         .card h3 {
@@ -121,7 +178,7 @@
 
         .card p {
             color: #64748b;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Contact */
@@ -130,31 +187,72 @@
             background: #e2e8f0;
         }
 
-        footer {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 20px;
+        .contact p {
+            color: #475569;
+            font-size: 17px;
+            margin-bottom: 5px;
         }
 
+        .contact a {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            text-align: center;
+            padding: 22px;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+        /* Responsive */
         @media (max-width: 800px) {
+
             .services {
                 grid-template-columns: 1fr 1fr;
             }
 
             .hero h1 {
-                font-size: 38px;
+                font-size: 40px;
+            }
+
+            nav {
+                padding: 18px 5%;
             }
         }
 
         @media (max-width: 500px) {
+
             .services {
                 grid-template-columns: 1fr;
             }
 
             nav {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 55px 6%;
             }
         }
     </style>
@@ -164,119 +262,174 @@
 
     <!-- Navbar -->
     <nav>
-        <h2>Rohit Upadhye</h2>
+
+        <h2>Varad Salunkhe</h2>
 
         <div>
             <a href="#about">About</a>
-            <a href="#services">Services</a>
+            <a href="#services">Skills</a>
             <a href="#contact">Contact</a>
         </div>
+
     </nav>
+
 
     <!-- Hero Section -->
     <section class="hero">
 
-        <h1>We Vision <span>Inspiration</span></h1>
+        <p class="tagline">COMPUTER SCIENCE ENGINEERING STUDENT</p>
+
+        <h1>Hi, I'm <span>Varad</span></h1>
 
         <p>
-            Varad is a CSE student working at VSpireInnovations
+            A passionate CSE student focused on building practical
+            software solutions and developing skills in Full Stack
+            Development, Data Science, AI and Cloud Technologies.
         </p>
 
         <button onclick="showMessage()">
-            Explore More if you want
+            Explore My Profile
         </button>
 
     </section>
 
+
     <!-- About -->
     <section id="about">
 
-        <h2>About Us</h2>
+        <h2>About Me</h2>
 
         <div class="about">
 
             <p>
-                VSpireInnovations is a technology company focused on
-                building modern software solutions and providing
-                industry-oriented technical training.
+                I am <strong>Varad Salunkhe</strong>, a Computer Science
+                Engineering student passionate about technology,
+                software development and continuous learning.
             </p>
 
             <br>
 
             <p>
-                We work across Artificial Intelligence, Data Science,
-                DevOps, MLOps and Full Stack Development.
+                My interests include <strong>Java Full Stack Development,
+                Python, Data Science, Artificial Intelligence,
+                DevOps and Cloud Computing</strong>. I enjoy turning
+                ideas into practical projects and improving my
+                technical skills through hands-on development.
+            </p>
+
+            <br>
+
+            <p>
+                My goal is to become a skilled software developer and
+                build reliable, scalable and useful applications.
             </p>
 
         </div>
 
     </section>
 
-    <!-- Services -->
+
+    <!-- Skills -->
     <section id="services">
 
-        <h2>Our Services</h2>
+        <h2>My Skills</h2>
 
         <div class="services">
 
             <div class="card">
-                <h3>AI & ML</h3>
+
+                <div class="icon">💻</div>
+
+                <h3>Full Stack Development</h3>
+
                 <p>
-                    Artificial Intelligence and Machine Learning
-                    solutions for real-world applications.
+                    Building responsive web applications using
+                    HTML, CSS, JavaScript, Bootstrap and backend
+                    technologies.
                 </p>
+
             </div>
 
-            <div class="card">
-                <h3>Data Science</h3>
-                <p>
-                    Data analytics, visualization and
-                    machine learning solutions.
-                </p>
-            </div>
 
             <div class="card">
-                <h3>DevOps & MLOps</h3>
+
+                <div class="icon">☕</div>
+
+                <h3>Java Development</h3>
+
                 <p>
-                    CI/CD, Docker, Kubernetes, cloud deployment
-                    and ML automation.
+                    Learning Core Java, OOP, Collections, JDBC,
+                    SQL and Spring Boot for enterprise applications.
                 </p>
+
             </div>
 
+
             <div class="card">
-                <h3>Full Stack</h3>
+
+                <div class="icon">📊</div>
+
+                <h3>Data & AI</h3>
+
                 <p>
-                    Modern frontend and backend application
-                    development.
+                    Exploring Python, Data Science, Machine Learning,
+                    data analysis and practical AI applications.
                 </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">☁️</div>
+
+                <h3>Cloud & DevOps</h3>
+
+                <p>
+                    Working with Git, GitHub, Docker, CI/CD,
+                    cloud deployment and modern development workflows.
+                </p>
+
             </div>
 
         </div>
 
     </section>
 
+
     <!-- Contact -->
     <section id="contact" class="contact">
 
-        <h2>Contact Us</h2>
+        <h2>Let's Connect</h2>
 
         <p>
-            Email: info@vspireinnovations.com
+            Interested in technology, collaboration or project development?
+        </p>
+
+        <br>
+
+        <p>
+            Email:
+            <a href="mailto:varadsalunkhe@example.com">
+                varadsalunkhe@example.com
+            </a>
         </p>
 
         <br>
 
         <button onclick="contactMessage()">
-            Contact Us
+            Contact Me
         </button>
 
     </section>
+
 
     <!-- Footer -->
     <footer>
 
         <p>
-            © 2026 VSpireInnovations. All Rights Reserved.
+            © 2026 <span>Varad Salunkhe</span>.
+            All Rights Reserved.
         </p>
 
     </footer>
@@ -286,11 +439,11 @@
     <script>
 
         function showMessage() {
-            alert("Welcome to VSpireInnovations!");
+            alert("Welcome to Varad Salunkhe's portfolio!");
         }
 
         function contactMessage() {
-            alert("Thank you for contacting VSpireInnovations!");
+            alert("Thank you for reaching out to Varad!");
         }
 
     </script>
